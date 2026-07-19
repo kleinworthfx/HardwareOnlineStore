@@ -1,6 +1,6 @@
 package za.ac.cput.controller;
 
-//import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.*;
 import za.ac.cput.domain.Customer;
 import za.ac.cput.service.CustomerService;
 
@@ -12,32 +12,33 @@ import java.util.List;
    Date: 19/07/2026
 */
 
-
+@RestController
+@RequestMapping("/customer")
 public class CustomerController {
 
     private final CustomerService service = CustomerService.getService();
 
-
-    public Customer create( Customer customer) {
+    @PostMapping("/create")
+    public Customer create(@RequestBody Customer customer) {
         return service.create(customer);
     }
 
-
-    public Customer read(String customerId) {
+    @GetMapping("/read/{customerId}")
+    public Customer read(@PathVariable String customerId) {
         return service.read(customerId);
     }
 
-
-    public Customer update( Customer customer) {
+    @PostMapping("/update")
+    public Customer update(@RequestBody Customer customer) {
         return service.update(customer);
     }
 
-
-    public boolean delete(String customerId) {
+    @DeleteMapping("/delete/{customerId}")
+    public boolean delete(@PathVariable String customerId) {
         return service.delete(customerId);
     }
 
-
+    @GetMapping("/getAll")
     public List<Customer> getAll() {
         return service.getAll();
     }
