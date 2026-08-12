@@ -2,7 +2,9 @@ package za.ac.cput.repository;
 
 import za.ac.cput.domain.Category;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 /* CategoryRepository.java
    Category Repository Implementation
@@ -13,10 +15,10 @@ public class CategoryRepository implements ICategoryRepository {
 
     private static CategoryRepository repository = null;
 
-    private final Set<Category> categoryDB;
+    private final List<Category> categoryDB;
 
     private CategoryRepository() {
-        categoryDB = new HashSet<>();
+        categoryDB = new ArrayList<>();
     }
 
     public static CategoryRepository getRepository() {
@@ -72,7 +74,7 @@ public class CategoryRepository implements ICategoryRepository {
         return false;
     }
 
-    public Set<Category> getAll() {
+    public List<Category> getAll() {
         return categoryDB;
     }
 }

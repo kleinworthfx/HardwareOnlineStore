@@ -2,18 +2,19 @@ package za.ac.cput.factory;
 
 import za.ac.cput.domain.Payment;
 import za.ac.cput.util.Helper;
-import java.math.BigDecimal;
-import java.util.Date;
 
-/* Payment.java
-   Payment Factory Entity using Builder Pattern
-   Author: [Khonzinkosi] ([230231802])
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+/* PaymentFactory.java
+   Payment Factory implementation
+   Author: Khonzinkosi Khumalo (230231802)
    Date: 21 June 2026 */
 
 public class PaymentFactory {
 
     public static Payment createPayment(String paymentId, String orderId, String paymentMethod,
-                                        String transactionId, Date paymentDate, BigDecimal amount,
+                                        String transactionId, LocalDateTime paymentDate, BigDecimal amount,
                                         String paymentStatus) {
         if (Helper.isNullOrEmpty(paymentId) || Helper.isNullOrEmpty(orderId) ||
                 Helper.isNullOrEmpty(paymentMethod) || Helper.isNullOrEmpty(paymentStatus)) {

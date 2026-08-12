@@ -4,10 +4,13 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import za.ac.cput.domain.Payment;
 import za.ac.cput.factory.PaymentFactory;
+
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -16,11 +19,15 @@ import static org.junit.jupiter.api.Assertions.*;
    Service Integration Tests for Payment Service
    Author: Khonzinkosi Khumalo (230231802)
    Date: 12 July 2026 */
+@SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class PaymentServiceTest {
-    private static final PaymentService service = PaymentService.getService();
+
+    @Autowired
+    private PaymentService service;
+
     private static final Payment payment = PaymentFactory.createPayment(
-            "PAY-992", "ORD-881", "EFT", "TXN-0012", new Date(), new BigDecimal("1200.00"), "PENDING"
+            "PAY-992", "ORD-881", "EFT", "TXN-0012", LocalDateTime.now(), new BigDecimal("1200.00"), "PENDING"
     );
 
     @Test

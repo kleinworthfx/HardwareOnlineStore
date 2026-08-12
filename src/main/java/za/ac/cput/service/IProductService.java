@@ -2,7 +2,6 @@ package za.ac.cput.service;
 
 import za.ac.cput.domain.Product;
 
-import java.util.List;
 import java.util.Set;
 /* IProductService.java
    Product Service Interface
@@ -11,6 +10,8 @@ import java.util.Set;
 
 public interface IProductService extends IService<Product, String> {
 
-    List<Product> getAll();
+    boolean delete(String productId);
+
+    Set<Product> getAll();
 
 }

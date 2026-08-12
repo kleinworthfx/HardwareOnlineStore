@@ -3,7 +3,7 @@ package za.ac.cput.service;
 import za.ac.cput.domain.Product;
 import za.ac.cput.repository.ProductRepository;
 
-import java.util.Set;
+import java.util.List;
 /* ProductService.java
    Product Service Implementation using Singleton Pattern
    Author: Sinoxolo Kobeni (230801846)
@@ -46,7 +46,7 @@ public class ProductService implements IProductService {
     }
 
     @Override
-    public Set<Product> getAll() {
+    public List<Product> getAll() {
         return repository.getAll();
     }
 }

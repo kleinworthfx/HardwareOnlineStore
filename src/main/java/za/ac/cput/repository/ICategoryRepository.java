@@ -2,7 +2,7 @@ package za.ac.cput.repository;
 
 import za.ac.cput.domain.Category;
 
-import java.util.List;
+import java.util.Set;
 /* ICategoryRepository.java
    Category Repository Interface
    Author: Sinoxolo Kobeni (230801846)
@@ -10,6 +10,6 @@ import java.util.List;
 
 public interface ICategoryRepository extends IRepository<Category, String> {
 
-    List<Category> getAll();
+    Set<Category> getAll();
 
 }

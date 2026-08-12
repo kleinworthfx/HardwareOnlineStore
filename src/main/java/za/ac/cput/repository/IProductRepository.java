@@ -2,7 +2,7 @@ package za.ac.cput.repository;
 
 import za.ac.cput.domain.Product;
 
-import java.util.List;
+import java.util.Set;
 /* IProductRepository.java
    Product Repository Interface
    Author: Sinoxolo Kobeni (230801846)
@@ -11,6 +11,6 @@ import java.util.List;
 
 public interface IProductRepository extends IRepository<Product, String> {
 
-    List<Product> getAll();
+    Set<Product> getAll();
 
 }

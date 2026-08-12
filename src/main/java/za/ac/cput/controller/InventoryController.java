@@ -14,25 +14,25 @@ import java.util.List;
 public class InventoryController {
 
     // Aligned with your project's Singleton service layer pattern
-    private final InventoryService inventoryService = InventoryService.getService();
 
     @PostMapping("/create")
     public Inventory create(@RequestBody Inventory inventory) {
-        return inventoryService.create(inventory);
+    return null;
     }
 
     @GetMapping("/read/{id}")
+
     public Inventory read(@PathVariable String id) {
-        return inventoryService.read(id);
+        return null;
     }
 
     @PostMapping("/update")
     public Inventory update(@RequestBody Inventory inventory) {
-        return inventoryService.update(inventory);
+        return null;
     }
 
     @GetMapping("/getall")
     public List<Inventory> getAll() {
-        return inventoryService.getAll();
+        return null;
     }
 }

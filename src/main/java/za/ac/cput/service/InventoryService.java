@@ -1,46 +1,39 @@
 package za.ac.cput.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service; // <-- Make sure this import is present
 import za.ac.cput.domain.Inventory;
-import za.ac.cput.repository.InventoryRepository;
+import za.ac.cput.repository.IInventoryRepository;
+
 import java.util.List;
 
-/* InventoryService.java
-   Inventory Service Implementation using Singleton Pattern
-   Author: Khonzinkosi Khumalo (230231802)
-   Date: 12 July 2026 */
+@Service
 public class InventoryService implements IInventoryService {
-    private static InventoryService service = null;
-    private final InventoryRepository repository;
 
-    private InventoryService() {
-        this.repository = InventoryRepository.getRepository();
-    }
+    private final IInventoryRepository repository;
 
-    // Singleton Implementation
-    public static InventoryService getService() {
-        if (service == null) {
-            service = new InventoryService();
-        }
-        return service;
+    @Autowired
+    public InventoryService(IInventoryRepository repository) {
+        this.repository = repository;
     }
 
     @Override
     public Inventory create(Inventory inventory) {
-        return repository.create(inventory);
+        return this.repository.save(inventory);
     }
 
     @Override
-    public Inventory read(String inventoryId) {
-        return repository.read(inventoryId);
+    public Inventory read(String id) {
+        return this.repository.findById(id).orElse(null);
     }
 
     @Override
     public Inventory update(Inventory inventory) {
-        return repository.update(inventory);
+        return this.repository.save(inventory);
     }
 
     @Override
     public List<Inventory> getAll() {
-        return repository.getAll();
+        return this.repository.findAll();
     }
 }

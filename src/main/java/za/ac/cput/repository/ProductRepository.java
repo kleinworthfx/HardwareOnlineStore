@@ -2,8 +2,8 @@ package za.ac.cput.repository;
 
 import za.ac.cput.domain.Product;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 /* ProductRepository.java
    Product Repository Implementation
@@ -14,10 +14,10 @@ public class ProductRepository implements IProductRepository {
 
     private static ProductRepository repository = null;
 
-    private final Set<Product> productDB;
+    private final List<Product> productDB;
 
     private ProductRepository() {
-        productDB = new HashSet<>();
+        productDB = new ArrayList<>();
     }
 
     public static ProductRepository getRepository() {
@@ -70,7 +70,7 @@ public class ProductRepository implements IProductRepository {
         return false;
     }
 
-    public Set<Product> getAll() {
+    public List<Product> getAll() {
         return productDB;
     }
 }

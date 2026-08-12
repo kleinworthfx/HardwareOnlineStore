@@ -13,8 +13,9 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import za.ac.cput.domain.Payment;
 import za.ac.cput.factory.PaymentFactory;
+
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -31,7 +32,7 @@ class PaymentControllerTest {
 
     private final String baseUrl = "/payment";
     private static final Payment payment = PaymentFactory.createPayment(
-            "PAY-100", "ORD-500", "Credit Card", "TXN-9991", new Date(), new BigDecimal("450.00"), "PENDING"
+            "PAY-100", "ORD-500", "Credit Card", "TXN-9991", LocalDateTime.now(), new BigDecimal("450.00"), "PENDING"
     );
 
     @Test

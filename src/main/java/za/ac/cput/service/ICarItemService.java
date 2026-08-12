@@ -7,6 +7,6 @@ import java.util.List;
    CartItem Service Interface Contract
    Author: Mfanafuthi Khumalo 230018270
    Date: 12 July 2026 */
-public interface iCarItemService extends IService<CartItem, String> {
+public interface ICarItemService extends IService<CartItem, String> {
     List<CartItem> getAll();
 }

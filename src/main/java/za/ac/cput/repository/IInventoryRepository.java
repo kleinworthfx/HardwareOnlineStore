@@ -1,5 +1,7 @@
 package za.ac.cput.repository;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 import za.ac.cput.domain.Inventory;
 import java.util.List;
 
@@ -7,7 +9,7 @@ import java.util.List;
    Inventory-specific Repository Interface
    Author: [Khonzinkosi Khumalo] 230231802
    Date: 05 July 2026 */
-public interface IInventoryRepository extends IRepository<Inventory, String> {
+@Repository
+public interface IInventoryRepository extends JpaRepository<Inventory, String> {
     // Contract to fetch all tracked stock lines
-    List<Inventory> getAll();
 }

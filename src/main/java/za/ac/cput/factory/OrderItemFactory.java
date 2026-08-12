@@ -2,34 +2,23 @@ package za.ac.cput.factory;
 
 import za.ac.cput.domain.OrderItem;
 import za.ac.cput.util.Helper;
-/*
- * Category.java
- * Category Domain Entity using Builder Pattern
- * Author: Francine Mulangu Kasongo
- * student: 230978649
- * Date: 28 June 2026
- */
 
-
+/* OrderItemFactory.java
+   Factory class for creating OrderItem instances
+   Author: Francine Mulangu Kasongo (230978649)
+   Date: 28 June 2026 */
 public class OrderItemFactory {
 
-    public static OrderItem create(String itemId, int quantity, double unitPrice) {
+    public static OrderItem createOrderItem(String itemId, int quantity, double unitPrice) {
 
-        if (Helper.isNullOrEmpty(itemId)) {
-            throw new IllegalArgumentException("Item ID cannot be empty");
+        if (Helper.isNullOrEmpty(itemId) || quantity <= 0 || unitPrice <= 0) {
+            return null;
         }
-        if (quantity < 0) {
-            throw new IllegalArgumentException("Quantity cannot be negative");
-        }
-        if (unitPrice < 0) {
-            throw new IllegalArgumentException("Price cannot be negative");
-        }
-
 
         return new OrderItem.Builder()
-                .itemId(itemId)
-                .quantity(quantity)
-                .unitPrice(unitPrice)
+                .setItemId(itemId)
+                .setQuantity(quantity)
+                .setUnitPrice(unitPrice)
                 .build();
     }
 }

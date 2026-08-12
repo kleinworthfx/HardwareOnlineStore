@@ -18,6 +18,7 @@ class CategoryFactoryTest {
         Category category = CategoryFactory.createCategory(
                 "C001",
                 "Tools",
+
                 null
         );
 

@@ -1,5 +1,9 @@
 package za.ac.cput.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 import java.util.Objects;
 
 /* Inventory.java
@@ -7,14 +11,21 @@ import java.util.Objects;
    Author: [Khonzinkosi] ([230231802])
    Date: 21 June 2026 */
 
+@Entity
+@Table(name = "inventory")
 public class Inventory {
-    private final String inventoryId;
-    private final String productId;
-    private final int quantityInStock;
-    private final int reorderLevel;
-    private final String locationWarehouse;
+    @Id
+    private  String inventoryId;
+    private  String productId;
+    private  int quantityInStock;
+    private int reorderLevel;
+    private  String locationWarehouse;
 
-    private Inventory(Builder builder) {
+    public Inventory() {
+
+    }
+
+    public Inventory(Builder builder) {
         this.inventoryId = builder.inventoryId;
         this.productId = builder.productId;
         this.quantityInStock = builder.quantityInStock;

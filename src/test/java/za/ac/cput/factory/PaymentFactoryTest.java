@@ -2,13 +2,15 @@ package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
 import za.ac.cput.domain.Payment;
+
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 /* PaymentFactoryTest.java
    TDD Unit Tests for Payment Factory
-   Author: [Khonzinkosi] (230231802)
+   Author: Khonzinkosi Khumalo (230231802)
    Date: 28 June 2026 */
 
 class PaymentFactoryTest {
@@ -20,7 +22,7 @@ class PaymentFactoryTest {
                 "ORD-5542",
                 "EFT",
                 "TXN-998877",
-                new Date(),
+                LocalDateTime.now(),
                 new BigDecimal("1450.50"),
                 "COMPLETED"
         );
@@ -38,7 +40,7 @@ class PaymentFactoryTest {
                 "", // Invalid Empty Order ID string
                 "Credit Card",
                 "TXN-112233",
-                new Date(),
+                LocalDateTime.now(),
                 new BigDecimal("500.00"),
                 "PENDING"
         );
@@ -52,7 +54,7 @@ class PaymentFactoryTest {
                 "ORD-5542",
                 "EFT",
                 "TXN-998877",
-                new Date(),
+                LocalDateTime.now(),
                 new BigDecimal("-50.00"), // Invalid Negative Amount
                 "COMPLETED"
         );
