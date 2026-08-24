@@ -1,7 +1,7 @@
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Cart;
-import za.ac.cput.repository.CartRepository;
+import za.ac.cput.entity.Cart;
+
 import java.util.List;
 
 /* CartService.java

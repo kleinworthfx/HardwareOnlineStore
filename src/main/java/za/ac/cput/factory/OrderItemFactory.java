@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domain.OrderItem;
-import za.ac.cput.util.Helper;
+import za.ac.cput.entity.OrderItem;
 
 /* OrderItemFactory.java
    Factory class for creating OrderItem instances

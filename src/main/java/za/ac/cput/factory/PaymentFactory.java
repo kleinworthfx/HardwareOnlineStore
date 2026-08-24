@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domain.Payment;
-import za.ac.cput.util.Helper;
+import za.ac.cput.entity.Payment;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

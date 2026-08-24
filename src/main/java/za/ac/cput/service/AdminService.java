@@ -1,6 +1,9 @@
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Admin;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import za.ac.cput.entity.Admin;
+import za.ac.cput.exception.ResourceNotFoundException;
 import za.ac.cput.repository.AdminRepository;
 
 import java.util.List;
@@ -11,44 +14,36 @@ import java.util.List;
    Date: 12/07/2026
 */
 
-public class AdminService implements IAdminService {
-
-    private static AdminService service = null;
+@Service
+@Transactional
+public class AdminService implements IAdminService{
     private final AdminRepository repository;
 
-    private AdminService() {
-        repository = AdminRepository.getRepository();
+    public AdminService(AdminRepository repository) { this.repository = repository; }
+
+    @Transactional(readOnly = true)
+    public List<Admin> getAll() { return repository.findAll(); }
+
+    public Admin create(Admin entity) {
+        if (entity == null) throw new IllegalArgumentException("Admin must not be null");
+        return repository.save(entity);
     }
 
-    public static AdminService getService() {
-        if (service == null) {
-            service = new AdminService();
-        }
-        return service;
+    @Transactional(readOnly = true)
+    public Admin read(String id) { return repository.findByAdminId(id).orElse(null); }
+
+    public Admin update(Admin entity) {
+        if (entity == null) throw new IllegalArgumentException("Admin must not be null");
+        Long existingId;
+        Admin existing = repository.findByAdminId(entity.getAdminId()).orElse(null);
+        if (existing == null) throw new ResourceNotFoundException("Admin not found: " + entity.getAdminId());
+        existingId = existing.getId();
+        return repository.save(Admin.copy(entity).id(existingId).build());
     }
 
-    @Override
-    public Admin create(Admin admin) {
-        return repository.create(admin);
-    }
-
-    @Override
-    public Admin read(String adminId) {
-        return repository.read(adminId);
-    }
-
-    @Override
-    public Admin update(Admin admin) {
-        return repository.update(admin);
-    }
-
-    @Override
-    public boolean delete(String adminId) {
-        return repository.delete(adminId);
-    }
-
-    @Override
-    public List<Admin> getAll() {
-        return repository.getAll();
+    public boolean delete(String id) {
+        if (!(repository.existsByAdminId(id))) return false;
+        repository.deleteByAdminId(id);
+        return true;
     }
 }

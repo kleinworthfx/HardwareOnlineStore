@@ -1,8 +1,8 @@
 package za.ac.cput.controller;
 
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.domain.Inventory;
-import za.ac.cput.service.InventoryService;
+import za.ac.cput.entity.Inventory;
+
 import java.util.List;
 
 /* InventoryController.java

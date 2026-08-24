@@ -4,12 +4,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-import za.ac.cput.domain.Order;
-import za.ac.cput.domain.OrderItem;
+import za.ac.cput.entity.Order;
 import za.ac.cput.repository.IOrderRepository;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;

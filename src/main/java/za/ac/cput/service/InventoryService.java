@@ -2,7 +2,7 @@ package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service; // <-- Make sure this import is present
-import za.ac.cput.domain.Inventory;
+import za.ac.cput.entity.Inventory;
 import za.ac.cput.repository.IInventoryRepository;
 
 import java.util.List;

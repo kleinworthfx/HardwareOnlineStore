@@ -1,5 +1,5 @@
 
-package za.ac.cput.domain;
+package za.ac.cput.entity;
 
 import java.math.BigDecimal;
 /*

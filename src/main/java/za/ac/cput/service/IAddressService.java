@@ -1,23 +1,13 @@
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Address;
-import java.util.List;
+import za.ac.cput.entity.Address;
 
-/* IAddressService.java
-   Address Service Interface
+/* AddressService.java
+   IAddress Service
    Author: Paul Khumalo (230108547)
    Date: 12/07/2026
 */
 
-public interface IAddressService {
+public interface IAddressService extends IService<Address, Long> {
 
-    Address create(Address address);
-
-    Address read(String streetAddress);
-
-    Address update(Address address);
-
-    boolean delete(String streetAddress);
-
-    List<Address> getAll();
 }

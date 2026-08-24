@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domain.CartItem;
-import za.ac.cput.util.Helper;
+import za.ac.cput.entity.CartItem;
 
 /* CartItemFactory.java
    Factory class for CartItem Entity

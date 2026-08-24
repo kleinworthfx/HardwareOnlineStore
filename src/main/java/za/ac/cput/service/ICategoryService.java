@@ -1,6 +1,6 @@
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Category;
+import za.ac.cput.entity.Category;
 
 import java.util.Set;
 /* ICategoryService.java

@@ -1,7 +1,7 @@
 package za.ac.cput.controller;
 
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.domain.Category;
+import za.ac.cput.entity.Category;
 import za.ac.cput.service.CategoryService;
 
 import java.util.List;

@@ -1,7 +1,7 @@
 package za.ac.cput.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import za.ac.cput.domain.CartItem;
+import za.ac.cput.entity.CartItem;
 
 /* ICartItemRepository.java
    CartItem Repository Interface

@@ -1,7 +1,8 @@
 package za.ac.cput.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.domain.Admin;
+import za.ac.cput.entity.Admin;
 import za.ac.cput.service.AdminService;
 
 import java.util.List;
@@ -13,33 +14,36 @@ import java.util.List;
 */
 
 @RestController
-@RequestMapping("/admin")
+@RequestMapping("/api/admins")
 public class AdminController {
+    private final AdminService service;
 
-    private final AdminService service = AdminService.getService();
+    public AdminController(AdminService service) { this.service = service; }
 
-    @PostMapping("/create")
-    public Admin create(@RequestBody Admin admin) {
-        return service.create(admin);
+    @GetMapping
+    public List<Admin> getAll() { return service.getAll(); }
+
+    @PostMapping
+    public ResponseEntity<Admin> create(@RequestBody Admin entity) {
+        return ResponseEntity.status(201).body(service.create(entity));
     }
 
-    @GetMapping("/read/{adminId}")
-    public Admin read(@PathVariable String adminId) {
-        return service.read(adminId);
+    @GetMapping("/{id}")
+    public ResponseEntity<Admin> read(@PathVariable String id) {
+        Admin entity = service.read(id);
+        return entity == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(entity);
     }
 
-    @PostMapping("/update")
-    public Admin update(@RequestBody Admin admin) {
-        return service.update(admin);
+    @PutMapping("/{id}")
+    public ResponseEntity<Admin> update(@PathVariable String id, @RequestBody Admin entity) {
+        Admin existing = service.read(id);
+        if (existing == null) return ResponseEntity.notFound().build();
+        Admin updated = Admin.copy(entity).id(existing.getId()).adminId(id).build();
+        return ResponseEntity.ok(service.update(updated));
     }
 
-    @DeleteMapping("/delete/{adminId}")
-    public boolean delete(@PathVariable String adminId) {
-        return service.delete(adminId);
-    }
-
-    @GetMapping("/getAll")
-    public List<Admin> getAll() {
-        return service.getAll();
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        return service.delete(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 }

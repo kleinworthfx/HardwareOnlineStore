@@ -1,5 +1,5 @@
 
-package za.ac.cput.domain;
+package za.ac.cput.entity;
 /*
  * Category.java
  * Category Domain Entity using Builder Pattern

@@ -1,7 +1,7 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domain.Cart;
-import za.ac.cput.util.Helper;
+import za.ac.cput.entity.Cart;
+
 import java.util.Date;
 
 /* CartFactory.java

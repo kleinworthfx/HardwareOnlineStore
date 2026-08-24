@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domain.Order;
-import za.ac.cput.util.Helper;
+import za.ac.cput.entity.Order;
 
 import java.time.LocalDate;
 

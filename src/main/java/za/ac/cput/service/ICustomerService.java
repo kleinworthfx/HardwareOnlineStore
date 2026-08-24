@@ -1,23 +1,12 @@
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Customer;
-import java.util.List;
+import za.ac.cput.entity.Customer;
 
-/* ICustomerService.java
-   Customer Service Interface
+/* CustomerService.java
+   ICustomer Service Implementation
    Author: Paul Khumalo (230108547)
    Date: 12/07/2026
 */
 
-public interface ICustomerService {
-
-    Customer create(Customer customer);
-
-    Customer read(String customerId);
-
-    Customer update(Customer customer);
-
-    boolean delete(String customerId);
-
-    List<Customer> getAll();
+public interface ICustomerService extends IService<Customer, String>{
 }

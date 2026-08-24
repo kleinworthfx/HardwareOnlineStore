@@ -1,6 +1,6 @@
 package za.ac.cput.repository;
 
-import za.ac.cput.domain.Category;
+import za.ac.cput.entity.Category;
 
 import java.util.Set;
 /* ICategoryRepository.java

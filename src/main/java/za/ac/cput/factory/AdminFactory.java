@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.domain.Admin;
-import za.ac.cput.util.Helper;
+import za.ac.cput.entity.Admin;
 
 /* AdminFactory.java
    Admin Factory Class
@@ -10,30 +9,13 @@ import za.ac.cput.util.Helper;
 */
 
 public class AdminFactory {
+    private AdminFactory() {}
 
-    private AdminFactory() {
-    }
-
-    public static Admin createAdmin(String adminId,
-                                    String role,
-                                    String permissions) {
-
-        if (Helper.isNullOrEmpty(adminId)) {
-            throw new IllegalArgumentException("Admin system identity authorization key required");
-        }
-
-        if (Helper.isNullOrEmpty(role)) {
-            throw new IllegalArgumentException("Admin role is required");
-        }
-
-        if (Helper.isNullOrEmpty(permissions)) {
-            throw new IllegalArgumentException("Admin permissions are required");
-        }
-
-        return new Admin.Builder()
-                .setAdminId(adminId)
-                .setRole(role)
-                .setPermissions(permissions)
+    public static Admin create(String adminId, String role, String permissions) {
+        return Admin.builder()
+                .adminId(adminId)
+                .role(role)
+                .permissions(permissions)
                 .build();
     }
 }

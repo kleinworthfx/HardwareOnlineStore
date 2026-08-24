@@ -1,6 +1,6 @@
 package za.ac.cput.service;
 
-import za.ac.cput.domain.CartItem;
+import za.ac.cput.entity.CartItem;
 import java.util.List;
 
 /* ICartItemService.java

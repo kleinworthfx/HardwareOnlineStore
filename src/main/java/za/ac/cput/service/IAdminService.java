@@ -1,23 +1,12 @@
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Admin;
-import java.util.List;
+import za.ac.cput.entity.Admin;
 
-/* IAdminService.java
-   Admin Service Interface
+/* AdminService.java
+   IAdmin Service Implementation
    Author: Paul Khumalo (230108547)
    Date: 12/07/2026
 */
 
-public interface IAdminService {
-
-    Admin create(Admin admin);
-
-    Admin read(String adminId);
-
-    Admin update(Admin admin);
-
-    boolean delete(String adminId);
-
-    List<Admin> getAll();
+public interface IAdminService extends IService<Admin, String> {
 }

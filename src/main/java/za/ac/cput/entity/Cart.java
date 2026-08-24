@@ -1,4 +1,4 @@
-package za.ac.cput.domain;
+package za.ac.cput.entity;
 
 import java.util.Date;
 import java.util.Objects;

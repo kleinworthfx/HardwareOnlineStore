@@ -1,7 +1,4 @@
-package za.ac.cput.domain;
-
-import jakarta.persistence.*;
-import za.ac.cput.util.Helper;
+package za.ac.cput.entity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

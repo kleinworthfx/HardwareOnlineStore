@@ -1,4 +1,4 @@
-package za.ac.cput.domain;
+package za.ac.cput.entity;
 /*
  * Category.java
  * Category Domain Entity using Builder Pattern
@@ -6,8 +6,6 @@ package za.ac.cput.domain;
  * student: 230978649
  * Date: 21 June 2026
  */
-
-import za.ac.cput.util.Helper;
 
 public class OrderItem {
     private final String itemId;

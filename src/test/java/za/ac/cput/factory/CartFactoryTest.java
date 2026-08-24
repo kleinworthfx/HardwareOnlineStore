@@ -1,7 +1,7 @@
 package za.ac.cput.factory;
 
 import org.junit.jupiter.api.Test;
-import za.ac.cput.domain.Cart;
+import za.ac.cput.entity.Cart;
 import java.util.Date;
 import static org.junit.jupiter.api.Assertions.*;
 

@@ -1,7 +1,8 @@
 package za.ac.cput.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.domain.Address;
+import za.ac.cput.entity.Address;
 import za.ac.cput.service.AddressService;
 
 import java.util.List;
@@ -13,33 +14,36 @@ import java.util.List;
 */
 
 @RestController
-@RequestMapping("/address")
+@RequestMapping("/api/addresses")
 public class AddressController {
+    private final AddressService service;
 
-    private final AddressService service = AddressService.getService();
+    public AddressController(AddressService service) { this.service = service; }
 
-    @PostMapping("/create")
-    public Address create(@RequestBody Address address) {
-        return service.create(address);
+    @GetMapping
+    public List<Address> getAll() { return service.getAll(); }
+
+    @PostMapping
+    public ResponseEntity<Address> create(@RequestBody Address entity) {
+        return ResponseEntity.status(201).body(service.create(entity));
     }
 
-    @GetMapping("/read/{streetAddress}")
-    public Address read(@PathVariable String streetAddress) {
-        return service.read(streetAddress);
+    @GetMapping("/{id}")
+    public ResponseEntity<Address> read(@PathVariable Long id) {
+        Address entity = service.read(id);
+        return entity == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(entity);
     }
 
-    @PostMapping("/update")
-    public Address update(@RequestBody Address address) {
-        return service.update(address);
+    @PutMapping("/{id}")
+    public ResponseEntity<Address> update(@PathVariable Long id, @RequestBody Address entity) {
+        Address existing = service.read(id);
+        if (existing == null) return ResponseEntity.notFound().build();
+        Address updated = Address.copy(entity).id(existing.getId()).build();
+        return ResponseEntity.ok(service.update(updated));
     }
 
-    @DeleteMapping("/delete/{streetAddress}")
-    public boolean delete(@PathVariable String streetAddress) {
-        return service.delete(streetAddress);
-    }
-
-    @GetMapping("/getAll")
-    public List<Address> getAll() {
-        return service.getAll();
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        return service.delete(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 }

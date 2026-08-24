@@ -1,7 +1,7 @@
 package za.ac.cput.service;
 
 import org.junit.jupiter.api.*;
-import za.ac.cput.domain.Product;
+import za.ac.cput.entity.Product;
 import za.ac.cput.factory.ProductFactory;
 
 import java.math.BigDecimal;

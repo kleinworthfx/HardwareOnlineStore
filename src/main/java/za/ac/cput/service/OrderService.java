@@ -2,13 +2,12 @@ package za.ac.cput.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import za.ac.cput.domain.Order;
-import za.ac.cput.domain.OrderItem;
+import za.ac.cput.entity.Order;
+import za.ac.cput.entity.OrderItem;
 import za.ac.cput.factory.OrderFactory;
 import za.ac.cput.factory.OrderItemFactory;
 import za.ac.cput.repository.IOrderRepository;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 

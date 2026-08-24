@@ -1,6 +1,6 @@
 package za.ac.cput.service;
 
-import za.ac.cput.domain.Inventory;
+import za.ac.cput.entity.Inventory;
 import java.util.List;
 
 /* IInventoryService.java

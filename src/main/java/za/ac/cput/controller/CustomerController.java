@@ -1,7 +1,8 @@
 package za.ac.cput.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import za.ac.cput.domain.Customer;
+import za.ac.cput.entity.Customer;
 import za.ac.cput.service.CustomerService;
 
 import java.util.List;
@@ -13,33 +14,36 @@ import java.util.List;
 */
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/api/customers")
 public class CustomerController {
+    private final CustomerService service;
 
-    private final CustomerService service = CustomerService.getService();
+    public CustomerController(CustomerService service) { this.service = service; }
 
-    @PostMapping("/create")
-    public Customer create(@RequestBody Customer customer) {
-        return service.create(customer);
+    @GetMapping
+    public List<Customer> getAll() { return service.getAll(); }
+
+    @PostMapping
+    public ResponseEntity<Customer> create(@RequestBody Customer entity) {
+        return ResponseEntity.status(201).body(service.create(entity));
     }
 
-    @GetMapping("/read/{customerId}")
-    public Customer read(@PathVariable String customerId) {
-        return service.read(customerId);
+    @GetMapping("/{id}")
+    public ResponseEntity<Customer> read(@PathVariable String id) {
+        Customer entity = service.read(id);
+        return entity == null ? ResponseEntity.notFound().build() : ResponseEntity.ok(entity);
     }
 
-    @PostMapping("/update")
-    public Customer update(@RequestBody Customer customer) {
-        return service.update(customer);
+    @PutMapping("/{id}")
+    public ResponseEntity<Customer> update(@PathVariable String id, @RequestBody Customer entity) {
+        Customer existing = service.read(id);
+        if (existing == null) return ResponseEntity.notFound().build();
+        Customer updated = Customer.copy(entity).id(existing.getId()).customerId(id).build();
+        return ResponseEntity.ok(service.update(updated));
     }
 
-    @DeleteMapping("/delete/{customerId}")
-    public boolean delete(@PathVariable String customerId) {
-        return service.delete(customerId);
-    }
-
-    @GetMapping("/getAll")
-    public List<Customer> getAll() {
-        return service.getAll();
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> delete(@PathVariable String id) {
+        return service.delete(id) ? ResponseEntity.noContent().build() : ResponseEntity.notFound().build();
     }
 }

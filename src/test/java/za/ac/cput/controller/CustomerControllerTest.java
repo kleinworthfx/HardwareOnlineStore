@@ -1,8 +1,8 @@
 package za.ac.cput.controller;
 
 import org.junit.jupiter.api.*;
-import za.ac.cput.domain.Address;
-import za.ac.cput.domain.Customer;
+import za.ac.cput.entity.Address;
+import za.ac.cput.entity.Customer;
 
 import static org.junit.jupiter.api.Assertions.*;
 

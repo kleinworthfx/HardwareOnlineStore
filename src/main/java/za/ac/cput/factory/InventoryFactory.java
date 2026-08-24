@@ -1,7 +1,6 @@
 package za.ac.cput.factory;
 
-import za.ac.cput.util.Helper;
-import za.ac.cput.domain.Inventory;
+import za.ac.cput.entity.Inventory;
 
 /* Payment.java
    Payment Factory Entity using Builder Pattern

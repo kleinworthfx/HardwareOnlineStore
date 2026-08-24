@@ -1,7 +1,7 @@
 package za.ac.cput.service;
 
 import org.junit.jupiter.api.*;
-import za.ac.cput.domain.Category;
+import za.ac.cput.entity.Category;
 import za.ac.cput.factory.CategoryFactory;
 
 import static org.junit.jupiter.api.Assertions.*;

@@ -1,6 +1,5 @@
 package za.ac.cput.factory;
-import za.ac.cput.domain.Product;
-import za.ac.cput.util.Helper;
+import za.ac.cput.entity.Product;
 
 import java.math.BigDecimal;
 

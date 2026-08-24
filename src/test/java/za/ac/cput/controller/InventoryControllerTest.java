@@ -11,7 +11,7 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
-import za.ac.cput.domain.Inventory;
+import za.ac.cput.entity.Inventory;
 import za.ac.cput.factory.InventoryFactory;
 
 import static org.junit.jupiter.api.Assertions.*;
